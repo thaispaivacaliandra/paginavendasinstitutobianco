@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jornada da Imagem Empreendedora | Mentoria Premium com Juliana Bianco</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --light-gold: #F0E68C;
+            --deep-gold: #B8860B;
+            --cream: #FFF8E7;
+            --soft-black: #0A0A0A;
+            --charcoal: #1A1A1A;
+            --gray: #333333;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--soft-black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+        
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            background: linear-gradient(to right, rgba(10,10,10,0.9), rgba(10,10,10,0.7)), url('https://images.unsplash.com/photo-1604609165505-7441b8d79060?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to top, var(--soft-black), transparent);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+        
+        .black-friday-tag {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--gold), var(--deep-gold));
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 2px;
+            color: var(--soft-black);
+            font-weight: 800;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .black-friday-tag::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            bottom: -2px;
+            left: -2px;
+            border: 1px solid var(--gold);
+            border-radius: 2px;
+            pointer-events: none;
+        }
+        
+        .hero-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--light-gold);
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .hero-title {
+            font-size: 5.5rem;
+            font-weight: 500;
+            line-height: 1;
+            color: var(--white);
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            padding: 0 10px;
+        }
+        
+        .hero-title span {
+            color: var(--gold);
+            font-style: italic;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-details {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--light-gold);
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+        
+        .gold-divider {
+            width: 60px;
+            height: 2px;
+            background-color: var(--gold);
+            margin: 30px auto;
+        }
+        
+        /* Button Styles */
+        .btn {
+            font-family: 'Montserrat', sans-serif;
+            display: inline-block;
+            background-color: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 15px 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            cursor: pointer;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+        
+        .btn:hover {
+            color: var(--white);
+            border-color: var(--white);
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary {
+            background-color: var(--gold);
+            color: var(--soft-black);
+            border: none;
+            padding: 16px 42px;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(184, 134, 11, 0.15);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--deep-gold);
+            color: var(--soft-black);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(184, 134, 11, 0.2);
+        }
+        
+        /* Scroll Icon */
+        .scroll-icon {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        .scroll-icon svg {
+            width: 30px;
+            height: 30px;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 150px 0;
+            background-color: var(--charcoal);
+            position: relative;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 35%;
+            height: 100%;
+            background: linear-gradient(to left, rgba(10,10,10,0.4), transparent);
+            z-index: 0;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .about-image {
+            position: relative;
+            z-index: 1;
+            height: 650px;
+            width: 100%;
+            border: 10px solid var(--charcoal);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+        }
+        
+        .about-image-container {
+            height: 100%;
+            width: 100%;
+            background-image: url('/fotos/foto1.png');
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(212, 175, 55, 0.6);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+        
+        .about-content {
+            max-width: 600px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .about-title {
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            line-height: 1.1;
+        }
+        
+        .about-title span {
+            color: var(--gold);
+        }
+        
+        .about-description {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 150px 0;
+            background-color: var(--soft-black);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.03) 0%, transparent 50%);
+        }
+        
+        .pricing-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 80px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: var(--white);
+        }
+        
+        .section-description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 300;
+        }
+        
+        .pricing-cards {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .pricing-card {
+            background-color: var(--charcoal);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 0;
+            padding: 60px 40px;
+            text-align: center;
+            flex: 0 1 380px;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .pricing-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--deep-gold));
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-15px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        .pricing-card:hover::after {
+            opacity: 1;
+        }
+        
+        .original-price {
+            font-family: 'Montserrat', sans-serif;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1.1rem;
+            text-decoration: line-through;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+        
+        .discount-badge {
+            font-family: 'Montserrat', sans-serif;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--deep-gold));
+            color: var(--soft-black);
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-radius: 2px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .current-price {
+            font-size: 4rem;
+            font-weight: 300;
+            color: var(--white);
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+        
+        .current-price span {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-right: 5px;
+            color: var(--gold);
+        }
+        
+        .price-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 150px 0;
+            background-color: var(--charcoal);
+            position: relative;
+        }
+        
+        .features::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .features-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 80px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .feature-card {
+            background-color: var(--soft-black);
+            border-left: 2px solid var(--gold);
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 300;
+            color: rgba(212, 175, 55, 0.2);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .feature-description {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        
+        /* Bonus Section */
+        .bonus {
+            padding: 150px 0;
+            background-color: var(--soft-black);
+            position: relative;
+        }
+        
+        .bonus::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+        
+        .bonus-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 80px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .bonus-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .bonus-card {
+            background-color: var(--charcoal);
+            padding: 40px;
+            text-align: center;
+            border-bottom: 2px solid var(--gold);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bonus-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .bonus-card::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--gold);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+        
+        .bonus-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .bonus-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: var(--white);
+            line-height: 1.3;
+        }
+        
+        .bonus-description {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        
+        /* Mentor Section */
+        .mentor {
+            padding: 150px 0;
+            background-color: var(--charcoal);
+            position: relative;
+        }
+        
+        .mentor-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .mentor-image {
+            height: 750px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .mentor-image-container {
+            height: 100%;
+            width: 100%;
+            background-color: rgba(40, 40, 40, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(212, 175, 55, 0.6);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            position: relative;
+        }
+        
+        .mentor-image-container::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            z-index: -1;
+        }
+        
+        .mentor-content {
+            max-width: 600px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .signature {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-top: 30px;
+        }
+        
+        /* Schedule Section */
+        .schedule {
+            padding: 150px 0;
+            background-color: var(--soft-black);
+            position: relative;
+        }
+        
+        .schedule::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 10% 10%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at 90% 90%, rgba(212, 175, 55, 0.03) 0%, transparent 50%);
+        }
+        
+        .schedule-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 80px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto 60px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .date-card {
+            background-color: var(--charcoal);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 20px 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .date-card:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+            border-color: var(--gold);
+            transform: scale(1.05);
+        }
+        
+        .date-value {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--gold);
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 150px 0;
+            background: linear-gradient(rgba(10,10,10,0.9), rgba(10,10,10,0.95)), url('https://images.unsplash.com/photo-1519683109079-d5f539e1542f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-title {
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: var(--white);
+        }
+        
+        .cta-description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 300;
+            margin-bottom: 50px;
+        }
+        
+        /* Footer */
+        .footer {
+            padding: 60px 0;
+            background-color: var(--soft-black);
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.05);
+        }
+        
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-logo {
+            color: var(--gold);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .footer-text {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 4.5rem;
+            }
+            
+            .about-grid, .mentor-grid {
+                gap: 40px;
+            }
+            
+            .about-image, .mentor-image {
+                height: 550px;
+            }
+            
+            .about-title, .section-title, .mentor-title, .cta-title {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .about-grid, .mentor-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .about-image, .mentor-image {
+                height: 450px;
+                margin: 0 auto;
+                max-width: 400px;
+            }
+            
+            .about-content, .mentor-content {
+                max-width: 100%;
+            }
+            
+            .pricing-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .pricing-card {
+                width: 100%;
+                max-width: 500px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 600px;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .about, .pricing, .features, .bonus, .mentor, .schedule, .cta {
+                padding: 100px 0;
+            }
+            
+            .section-title, .about-title, .mentor-title, .cta-title {
+                font-size: 2.5rem;
+            }
+            
+            .features-grid, .bonus-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .schedule-grid {
+                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            }
+            
+            .date-card {
+                padding: 15px 5px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .black-friday-tag {
+                font-size: 1rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .section-subtitle {
+                font-size: 0.8rem;
+            }
+            
+            .section-title, .about-title, .mentor-title, .cta-title {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 12px 30px;
+                font-size: 0.8rem;
+            }
+            
+            .feature-card, .bonus-card {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="black-friday-tag">Black Friday</div>
+            <p class="hero-subtitle">Mentoria Premium</p>
+            <h1 class="hero-title">Jornada da <span>Imagem</span> Empreendedora</h1>
+            <div class="gold-divider"></div>
+            <p class="hero-description">Uma experiência transformadora para empreendedoras que desejam elevar seu posicionamento e presença através de uma imagem autêntica e estratégica.</p>
+            <p class="hero-details">COM JULIANA BIANCO • 13 ENCONTROS AO VIVO</p>
+            <a href="#inscrever" class="btn btn-primary">Fale Comigo</a>
+        </div>
+        <div class="scroll-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" color="#D4AF37">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <div class="about-image-container">Espaço para foto da mentora</div>
+                </div>
+                <div class="about-content">
+                    <p class="about-subtitle">Sobre a Jornada</p>
+                    <h2 class="about-title">Destrave seu <span>posicionamento</span> e alcance resultados extraordinários</h2>
+                    <p class="about-description">A Jornada da Imagem Empreendedora vai além da estética superficial. É um mergulho profundo na construção da sua imagem como ferramenta estratégica de comunicação e posicionamento.</p>
+                    <p class="about-description">Desenvolva uma presença autêntica e magnética que reflete sua essência e comunica seu valor, atraindo as oportunidades certas para o seu negócio.</p>
+                    <a href="#inscrever" class="btn">Quero Participar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features" id="conteudo">
+        <div class="container">
+            <div class="features-header">
+                <p class="section-subtitle">Conteúdo da Mentoria</p>
+                <h2 class="section-title">O que você vai descobrir</h2>
+                <p class="section-description">Um programa completo para transformar sua imagem e potencializar seu negócio</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-number">01</div>
+                    <h3 class="feature-title">Seus arquétipos</h3>
+                    <p class="feature-description">Entender qual seus arquétipos naturais e a experiência de marca que deseja ofertar nos seus negócios, e como transformar isso em códigos imagéticos.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-number">02</div>
+                    <h3 class="feature-title">Seu perfil comportamental</h3>
+                    <p class="feature-description">Entender se você se comporta como um dominante, influente, estável ou conforme e como o seu perfil se veste.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-number">03</div>
+                    <h3 class="feature-title">Sua cartela de cores</h3>
+                    <p class="feature-description">Além de descobrir sua cartela, analisaremos se essas cores refletem o que sua marca pessoal deseja, e traçarmos estrategicamente o uso das cores no seu posicionamento.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-number">04</div>
+                    <h3 class="feature-title">Sua análise facial</h3>
+                    <p class="feature-description">Baseada no Facetelling, vamos entender seus traços faciais e o que comunicam, e principalmente criar estratégias pra comunicar o que deseja e precisa.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-number">05</div>
+                    <h3 class="feature-title">Sua análise corporal</h3>
+                    <p class="feature-description">Entender qual sua identidade corporal baseada no método Kibbe e Bodytteling, essa é a etapa em que entenderá como vestir o seu corpo atual de maneira a comunicar o que deseja.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-number">06</div>
+                    <h3 class="feature-title">Estilo Estratégico</h3>
+                    <p class="feature-description">Após a parte de Diagnóstico Imagético feito nas etapas anteriores, analisaremos qual o estilo que comunicará o que sua marca pessoal deseja.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-number">07</div>
+                    <h3 class="feature-title">Instrução de Compras assertivas</h3>
+                    <p class="feature-description">Nesta etapa você receberá sugestões de peças chaves baseadas no que foi analisado e decidido durante a jornada. Um armário cápsula pra comunicar o que deseja.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Bonus Section -->
+    <section class="bonus" id="bonus">
+        <div class="container">
+            <div class="bonus-header">
+                <p class="section-subtitle">Exclusividades</p>
+                <h2 class="section-title">Seus bônus especiais</h2>
+                <p class="section-description">Além de todo o conteúdo da mentoria, você receberá</p>
+            </div>
+            
+            <div class="bonus-cards">
+                <div class="bonus-card">
+                    <p class="bonus-label">Bônus 1</p>
+                    <h3 class="bonus-title">Análise de óculos, acessórios, cabelos e maquiagens</h3>
+                    <p class="bonus-description">Baseado no que deseja comunicar, você receberá uma análise personalizada para completar seu visual com todos os detalhes.</p>
+                </div>
+                
+                <div class="bonus-card">
+                    <p class="bonus-label">Bônus 2</p>
+                    <h3 class="bonus-title">Acesso ao Instagram fechado com conteúdos exclusivos</h3>
+                    <p class="bonus-description">Faça parte de uma comunidade seleta com acesso a conteúdos privilegiados e atualizações exclusivas.</p>
+                </div>
+                
+                <div class="bonus-card">
+                    <p class="bonus-label">Bônus 3</p>
+                    <h3 class="bonus-title">Plano de Ação de Extração de Marca Pessoal</h3>
+                    <p class="bonus-description">Sugestão de tipo de fonte, logo, fotos, conteúdos, linha editorial e posicionamento online/offline.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Mentor Section -->
+    <section class="mentor" id="mentor">
+        <div class="container">
+            <div class="mentor-grid">
+                <div class="mentor-content">
+                    <p class="about-subtitle">Sua Mentora</p>
+                    <h2 class="about-title">Juliana <span>Bianco</span></h2>
+                    <p class="about-description">Especialista em imagem estratégica para empreendedoras, Juliana Bianco desenvolveu uma metodologia única que combina psicologia, comunicação visual e estratégia de marca.</p>
+                    <p class="about-description">Com mais de X anos de experiência no mercado de imagem e posicionamento, já transformou a presença de centenas de mulheres empreendedoras, ajudando-as a comunicar seu valor e atrair oportunidades através de uma imagem autêntica e estratégica.</p>
+                    <div class="signature">Juliana Bianco</div>
+                </div>
+                <div class="mentor-image">
+                    <div class="mentor-image-container">Espaço para foto da mentora</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Schedule Section -->
+    <section class="schedule" id="agenda">
+        <div class="container">
+            <div class="schedule-header">
+                <p class="section-subtitle">Agenda</p>
+                <h2 class="section-title">Comece 2026 confiante com sua imagem</h2>
+                <p class="section-description">13 encontros ao vivo online (ficarão gravados)</p>
+            </div>
+            
+            <div class="schedule-grid">
+                <div class="date-card">
+                    <div class="date-value">1/12</div>
+                </div>
+                <div class="date-card">
+                    <div class="date-value">8/12</div>
+                </div>
+                <div class="date-card">
+                    <div class="date-value">15/12</div>
+                </div>
+                <div class="date-card">
+                    <div class="date-value">12/01</div>
+                </div>
+                <div class="date-card">
+                    <div class="date-value">19/01</div>
+                </div>
+                <div class="date-card">
+                    <div class="date-value">26/01</div>
+                </div>
+                <div class="date-card">
+                    <div class="date-value">02/03</div>
+                </div>
+                <div class="date-card">
+                    <div class="date-value">09/03</div>
+                </div>
+                <div class="date-card">
+                    <div class="date-value">16/03</div>
+                </div>
+                <div class="date-card">
+                    <div class="date-value">02/04</div>
+                </div>
+                <div class="date-card">
+                    <div class="date-value">09/04</div>
+                </div>
+                <div class="date-card">
+                    <div class="date-value">16/04</div>
+                </div>
+                <div class="date-card">
+                    <div class="date-value">23/04</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="#inscrever" class="btn btn-primary">Inscreva-se Agora</a>
+            </div>
+        </div>
+    </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing" id="investimento">
+            <div class="container">
+                <div class="pricing-header">
+                    <p class="section-subtitle">Investimento</p>
+                    <h2 class="section-title">Transforme sua imagem, eleve seus resultados</h2>
+                    <p class="section-description">Escolha a melhor opção para iniciar sua jornada de transformação</p>
+                </div>
+                
+                <div class="pricing-cards">
+                    <div class="pricing-card">
+                        <div class="original-price">R$ 2.770,00</div>
+                        <div class="discount-badge">57,33% de desconto</div>
+                        <div class="current-price"><span>R$</span>1.179</div>
+                        <div class="price-label">À VISTA</div>
+                        <a href="#inscrever" class="btn btn-primary">Quero Participar</a>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <div class="original-price">R$ 2.770,00</div>
+                        <div class="discount-badge">45,9% de desconto</div>
+                        <div class="current-price"><span>R$</span>1.499</div>
+                        <div class="price-label">PARCELADO</div>
+                        <a href="#inscrever" class="btn btn-primary">Quero Participar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+    <!-- CTA Section -->
+    <section class="cta" id="inscrever">
+        <div class="container">
+            <div class="cta-content">
+                <p class="section-subtitle">Sua transformação começa agora</p>
+                <h2 class="cta-title">Fale Comigo</h2>
+                <p class="cta-description">Entre em contato agora mesmo e garanta sua vaga nessa jornada transformadora. As vagas são limitadas para garantir uma experiência exclusiva.</p>
+                <a href="#" class="btn btn-primary">Inscreva-se Agora</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Juliana Bianco Consultoria</div>
+                <p class="footer-text">© 2025 Juliana Bianco Consultoria. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
