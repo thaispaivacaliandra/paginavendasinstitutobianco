@@ -30,6 +30,119 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
+
+
+        .video-player {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 40px auto;
+            background: #000;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(255, 255, 255, 0.1),
+                        0 10px 30px rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-player:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 80px rgba(255, 255, 255, 0.15),
+                        0 15px 40px rgba(255, 255, 255, 0.08);
+        }
+
+        .video-player video {
+            width: 100%;
+            display: block;
+        }
+
+        .video-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-player:hover .video-controls {
+            opacity: 1;
+        }
+
+        .play-pause-btn,
+        .mute-btn,
+        .fullscreen-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease;
+        }
+
+        .play-pause-btn:hover,
+        .mute-btn:hover,
+        .fullscreen-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .play-pause-btn svg,
+        .mute-btn svg,
+        .fullscreen-btn svg {
+            width: 30px;
+            height: 30px;
+            color: white;
+        }
+
+        .progress-container {
+            flex: 1;
+        }
+
+        #progressBar {
+            width: 100%;
+            height: 6px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        #progressBar::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        #progressBar::-moz-range-thumb {
+            width: 15px;
+            height: 15px;
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+
+        .time-display {
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            gap: 5px;
+            min-width: 100px;
+        }
         
         h1, h2, h3, h4 {
             font-family: 'Cormorant Garamond', serif;
@@ -43,11 +156,10 @@
             padding: 0 20px;
         }
         
-        /* Hero Section */
         .hero {
             height: 100vh;
             min-height: 700px;
-            background: linear-gradient(to right, rgba(10,10,10,0.9), rgba(10,10,10,0.7)), url('https://images.unsplash.com/photo-1604609165505-7441b8d79060?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1950&q=80');
+            background-image: url('../bianco/fotos/bg.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -56,6 +168,22 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Ajuste o 0.5 para mais ou menos escuro */
+            z-index: 1;
+        }
+
+        .hero > * {
+            position: relative;
+            z-index: 2;
         }
         
         .hero::after {
@@ -242,7 +370,7 @@
         /* About Section */
         .about {
             padding: 150px 0;
-            background-color: var(--charcoal);
+            background-color:var(--soft-black);
             position: relative;
         }
         
@@ -276,7 +404,7 @@
         .about-image-container {
             height: 100%;
             width: 100%;
-            background-image: url('/fotos/foto1.png');
+            background-image: url('../bianco/fotos/IMG_0022.JPG');
             background-size: cover;
             display: flex;
             align-items: center;
@@ -533,7 +661,7 @@
         
         /* Bonus Section */
         .bonus {
-            padding: 150px 0;
+            padding: 50px 0;
             background-color: var(--soft-black);
             position: relative;
         }
@@ -641,7 +769,10 @@
         .mentor-image-container {
             height: 100%;
             width: 100%;
-            background-color: rgba(40, 40, 40, 0.2);
+            background-image: url('../bianco/fotos/IMG_0023.JPG');
+            background-size: cover;
+            background-position: top;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -671,11 +802,14 @@
         }
         
         .signature {
-            font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            font-size: 2.5rem;
-            color: var(--gold);
+            font-size: 20px;
+            color: white;
             margin-top: 30px;
+            background-color: #000;
+            border-left: 5px solid #B8860B;
+            padding: 20px;
+            border-radius: 10px 20px 20px 10px;
         }
         
         /* Schedule Section */
@@ -909,12 +1043,11 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <div class="black-friday-tag">Black Friday</div>
             <p class="hero-subtitle">Mentoria Premium</p>
-            <h1 class="hero-title">Jornada da <span>Imagem</span> Empreendedora</h1>
+            <h1 class="hero-title">Jornada da <span>Imagem</span> Pessoal & Profissional</h1>
             <div class="gold-divider"></div>
-            <p class="hero-description">Uma experiência transformadora para empreendedoras que desejam elevar seu posicionamento e presença através de uma imagem autêntica e estratégica.</p>
-            <p class="hero-details">COM JULIANA BIANCO • 13 ENCONTROS AO VIVO</p>
+            <p class="hero-description">Uma experiência transformadora para quemq deseja elevar seu posicionamento e presença através de uma imagem autêntica e estratégica.</p>
+            <p class="hero-details">COM JULIANA BIANCO</p>
             <a href="#inscrever" class="btn btn-primary">Fale Comigo</a>
         </div>
         <div class="scroll-icon">
@@ -923,25 +1056,135 @@
             </svg>
         </div>
     </section>
-    
-    <!-- About Section -->
-    <section class="about" id="about">
+
+    <!-- Bonus Section -->
+    <section class="bonus" id="bonus">
         <div class="container">
-            <div class="about-grid">
-                <div class="about-image">
-                    <div class="about-image-container">Espaço para foto da mentora</div>
-                </div>
-                <div class="about-content">
-                    <p class="about-subtitle">Sobre a Jornada</p>
-                    <h2 class="about-title">Destrave seu <span>posicionamento</span> e alcance resultados extraordinários</h2>
-                    <p class="about-description">A Jornada da Imagem Empreendedora vai além da estética superficial. É um mergulho profundo na construção da sua imagem como ferramenta estratégica de comunicação e posicionamento.</p>
-                    <p class="about-description">Desenvolva uma presença autêntica e magnética que reflete sua essência e comunica seu valor, atraindo as oportunidades certas para o seu negócio.</p>
-                    <a href="#inscrever" class="btn">Quero Participar</a>
+            <div class="bonus-header">
+                <p class="section-subtitle">Exclusividades</p>
+                <h2 class="section-title">Sobre a Jornada da Imagem</h2>
+            </div>
+            <div class="video-player">
+                <video id="myVideo" autoplay muted playsinline src="../bianco/fotos/011 01 Ju Bianco.mp4"></video>
+                
+                <div class="video-controls">
+                    <button id="playPauseBtn" class="play-pause-btn">
+                        <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                        <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                            <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                        </svg>
+                    </button>
+                    
+                    <div class="progress-container">
+                        <input type="range" id="progressBar" value="0" min="0" max="100" step="0.1">
+                    </div>
+                    
+                    <div class="time-display">
+                        <span id="currentTime">0:00</span>
+                        <span>/</span>
+                        <span id="duration">0:00</span>
+                    </div>
+                    
+                    <button id="muteBtn" class="mute-btn">
+                        <svg class="sound-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+                        </svg>
+                        <svg class="mute-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                            <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+                        </svg>
+                    </button>
+                    
+                    <button id="fullscreenBtn" class="fullscreen-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
+            
+            <script>
+                const video = document.getElementById('myVideo');
+                const playPauseBtn = document.getElementById('playPauseBtn');
+                const playIcon = document.querySelector('.play-icon');
+                const pauseIcon = document.querySelector('.pause-icon');
+                const progressBar = document.getElementById('progressBar');
+                const currentTimeDisplay = document.getElementById('currentTime');
+                const durationDisplay = document.getElementById('duration');
+                const muteBtn = document.getElementById('muteBtn');
+                const soundIcon = document.querySelector('.sound-icon');
+                const muteIcon = document.querySelector('.mute-icon');
+                const fullscreenBtn = document.getElementById('fullscreenBtn');
+            
+                // Play/Pause
+                playPauseBtn.addEventListener('click', () => {
+                    if (video.paused) {
+                        video.play();
+                        playIcon.style.display = 'none';
+                        pauseIcon.style.display = 'block';
+                    } else {
+                        video.pause();
+                        playIcon.style.display = 'block';
+                        pauseIcon.style.display = 'none';
+                    }
+                });
+            
+                // Atualiza a barra de progresso
+                video.addEventListener('timeupdate', () => {
+                    const progress = (video.currentTime / video.duration) * 100;
+                    progressBar.value = progress;
+                    currentTimeDisplay.textContent = formatTime(video.currentTime);
+                });
+            
+                // Define a duração quando o vídeo carrega
+                video.addEventListener('loadedmetadata', () => {
+                    durationDisplay.textContent = formatTime(video.duration);
+                });
+            
+                // Seek no vídeo
+                progressBar.addEventListener('input', () => {
+                    const time = (progressBar.value / 100) * video.duration;
+                    video.currentTime = time;
+                });
+            
+                // Mute/Unmute
+                muteBtn.addEventListener('click', () => {
+                    video.muted = !video.muted;
+                    if (video.muted) {
+                        soundIcon.style.display = 'none';
+                        muteIcon.style.display = 'block';
+                    } else {
+                        soundIcon.style.display = 'block';
+                        muteIcon.style.display = 'none';
+                    }
+                });
+            
+                // Fullscreen
+                fullscreenBtn.addEventListener('click', () => {
+                    if (document.fullscreenElement) {
+                        document.exitFullscreen();
+                    } else {
+                        document.querySelector('.video-player').requestFullscreen();
+                    }
+                });
+            
+                // Formata tempo para mm:ss
+                function formatTime(seconds) {
+                    const mins = Math.floor(seconds / 60);
+                    const secs = Math.floor(seconds % 60);
+                    return `${mins}:${secs.toString().padStart(2, '0')}`;
+                }
+            
+                // Volta ao ícone de play quando o vídeo termina
+                video.addEventListener('ended', () => {
+                    playIcon.style.display = 'block';
+                    pauseIcon.style.display = 'none';
+                });
+            </script>
         </div>
     </section>
-    
+
     <!-- Features Section -->
     <section class="features" id="conteudo">
         <div class="container">
@@ -973,13 +1216,13 @@
                 <div class="feature-card">
                     <div class="feature-number">04</div>
                     <h3 class="feature-title">Sua análise facial</h3>
-                    <p class="feature-description">Baseada no Facetelling, vamos entender seus traços faciais e o que comunicam, e principalmente criar estratégias pra comunicar o que deseja e precisa.</p>
+                    <p class="feature-description">Você entenderá seus traços faciais e o que comunicam, e principalmente criar estratégias pra comunicar o que deseja e precisa.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-number">05</div>
                     <h3 class="feature-title">Sua análise corporal</h3>
-                    <p class="feature-description">Entender qual sua identidade corporal baseada no método Kibbe e Bodytteling, essa é a etapa em que entenderá como vestir o seu corpo atual de maneira a comunicar o que deseja.</p>
+                    <p class="feature-description">Você descobrirá qual sua identidade corporal. Essa é a etapa em que entenderá como vestir o seu corpo atual de maneira a comunicar o que deseja.</p>
                 </div>
                 
                 <div class="feature-card">
@@ -991,42 +1234,31 @@
                 <div class="feature-card">
                     <div class="feature-number">07</div>
                     <h3 class="feature-title">Instrução de Compras assertivas</h3>
-                    <p class="feature-description">Nesta etapa você receberá sugestões de peças chaves baseadas no que foi analisado e decidido durante a jornada. Um armário cápsula pra comunicar o que deseja.</p>
+                    <p class="feature-description">Nesta etapa você receberá sugestões de peças chaves baseadas no que foi analisado e decidido durante a jornada.</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Bonus Section -->
-    <section class="bonus" id="bonus">
+    <!-- About Section -->
+    <section class="about" id="about">
         <div class="container">
-            <div class="bonus-header">
-                <p class="section-subtitle">Exclusividades</p>
-                <h2 class="section-title">Seus bônus especiais</h2>
-                <p class="section-description">Além de todo o conteúdo da mentoria, você receberá</p>
-            </div>
-            
-            <div class="bonus-cards">
-                <div class="bonus-card">
-                    <p class="bonus-label">Bônus 1</p>
-                    <h3 class="bonus-title">Análise de óculos, acessórios, cabelos e maquiagens</h3>
-                    <p class="bonus-description">Baseado no que deseja comunicar, você receberá uma análise personalizada para completar seu visual com todos os detalhes.</p>
+            <div class="about-grid">
+                <div class="about-image">
+                    <div class="about-image-container"></div>
                 </div>
-                
-                <div class="bonus-card">
-                    <p class="bonus-label">Bônus 2</p>
-                    <h3 class="bonus-title">Acesso ao Instagram fechado com conteúdos exclusivos</h3>
-                    <p class="bonus-description">Faça parte de uma comunidade seleta com acesso a conteúdos privilegiados e atualizações exclusivas.</p>
-                </div>
-                
-                <div class="bonus-card">
-                    <p class="bonus-label">Bônus 3</p>
-                    <h3 class="bonus-title">Plano de Ação de Extração de Marca Pessoal</h3>
-                    <p class="bonus-description">Sugestão de tipo de fonte, logo, fotos, conteúdos, linha editorial e posicionamento online/offline.</p>
+                <div class="about-content">
+                    <p class="about-subtitle">Sobre a Jornada</p>
+                    <h2 class="about-title">Destrave seu <span>posicionamento</span> e alcance resultados extraordinários</h2>
+                    <p class="about-description">A Jornada da Imagem vai além da estética superficial. É um mergulho profundo na construção da sua imagem como ferramenta estratégica de comunicação e posicionamento.</p>
+                    <p class="about-description">Desenvolva uma presença autêntica e magnética que reflete sua essência e comunica seu valor, atraindo as oportunidades certas para o seu negócio e sua vida.</p>
+                    <a href="#inscrever" class="btn">Quero Participar</a>
                 </div>
             </div>
         </div>
     </section>
+    
+    
     
     <!-- Mentor Section -->
     <section class="mentor" id="mentor">
@@ -1035,12 +1267,12 @@
                 <div class="mentor-content">
                     <p class="about-subtitle">Sua Mentora</p>
                     <h2 class="about-title">Juliana <span>Bianco</span></h2>
-                    <p class="about-description">Especialista em imagem estratégica para empreendedoras, Juliana Bianco desenvolveu uma metodologia única que combina psicologia, comunicação visual e estratégia de marca.</p>
-                    <p class="about-description">Com mais de X anos de experiência no mercado de imagem e posicionamento, já transformou a presença de centenas de mulheres empreendedoras, ajudando-as a comunicar seu valor e atrair oportunidades através de uma imagem autêntica e estratégica.</p>
-                    <div class="signature">Juliana Bianco</div>
+                    <p class="about-description">Especialista em imagem estratégica, Juliana Bianco desenvolveu uma metodologia única que combina consultoria de imagem e branding pessoal.</p>
+                    <p class="about-description">Com mais de 14 anos de experiência no mercado de gestão de pessoas e desenvolvimento pessoal, já atua com centenas de pessoas, evidenciando suas compopetencias, habilidades e comportamentos.</p>
+                    <div class="signature">"Eu ajudo as pessoas a identificarem seus potenciais, incentivando-as a compartilharem suas próprias histórias e, assim, aprimorarem sua autoimagem, elevarem sua autoestima e construírem uma imagem autêntica em suas vidas pessoais e profissionais."</div>
                 </div>
                 <div class="mentor-image">
-                    <div class="mentor-image-container">Espaço para foto da mentora</div>
+                    <div class="mentor-image-container"></div>
                 </div>
             </div>
         </div>
@@ -1050,53 +1282,9 @@
     <section class="schedule" id="agenda">
         <div class="container">
             <div class="schedule-header">
-                <p class="section-subtitle">Agenda</p>
-                <h2 class="section-title">Comece 2026 confiante com sua imagem</h2>
-                <p class="section-description">13 encontros ao vivo online (ficarão gravados)</p>
+                <p class="section-subtitle">MENTORIA & CONSULTORIA</p>
+                <h2 class="section-title">Torne-se confiante com sua imagem</h2>
             </div>
-            
-            <div class="schedule-grid">
-                <div class="date-card">
-                    <div class="date-value">1/12</div>
-                </div>
-                <div class="date-card">
-                    <div class="date-value">8/12</div>
-                </div>
-                <div class="date-card">
-                    <div class="date-value">15/12</div>
-                </div>
-                <div class="date-card">
-                    <div class="date-value">12/01</div>
-                </div>
-                <div class="date-card">
-                    <div class="date-value">19/01</div>
-                </div>
-                <div class="date-card">
-                    <div class="date-value">26/01</div>
-                </div>
-                <div class="date-card">
-                    <div class="date-value">02/03</div>
-                </div>
-                <div class="date-card">
-                    <div class="date-value">09/03</div>
-                </div>
-                <div class="date-card">
-                    <div class="date-value">16/03</div>
-                </div>
-                <div class="date-card">
-                    <div class="date-value">02/04</div>
-                </div>
-                <div class="date-card">
-                    <div class="date-value">09/04</div>
-                </div>
-                <div class="date-card">
-                    <div class="date-value">16/04</div>
-                </div>
-                <div class="date-card">
-                    <div class="date-value">23/04</div>
-                </div>
-            </div>
-            
             <div style="text-align: center;">
                 <a href="#inscrever" class="btn btn-primary">Inscreva-se Agora</a>
             </div>
@@ -1114,18 +1302,16 @@
                 
                 <div class="pricing-cards">
                     <div class="pricing-card">
-                        <div class="original-price">R$ 2.770,00</div>
-                        <div class="discount-badge">57,33% de desconto</div>
-                        <div class="current-price"><span>R$</span>1.179</div>
+                        <div class="original-price">R$ 3.856,00</div>
+                        <div class="current-price"><span>R$</span>2.856</div>
                         <div class="price-label">À VISTA</div>
                         <a href="#inscrever" class="btn btn-primary">Quero Participar</a>
                     </div>
                     
                     <div class="pricing-card">
-                        <div class="original-price">R$ 2.770,00</div>
-                        <div class="discount-badge">45,9% de desconto</div>
-                        <div class="current-price"><span>R$</span>1.499</div>
-                        <div class="price-label">PARCELADO</div>
+                        <div class="original-price">R$ 4.500,00</div>
+                        <div class="current-price"><span>R$</span>3.500</div>
+                        <div class="price-label">PARCELADO EM ATÉ 10X</div>
                         <a href="#inscrever" class="btn btn-primary">Quero Participar</a>
                     </div>
                 </div>
